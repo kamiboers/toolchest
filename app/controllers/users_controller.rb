@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # byebug
     @user = User.find(params[:id])
   end
 
