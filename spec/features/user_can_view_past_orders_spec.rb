@@ -20,9 +20,13 @@ RSpec.feature "User can view past orders" do
     visit login_path
     fill_in "Username", with: user1.username
     fill_in "Password", with: user1.password
-    click_on "Login"
+    # save_and_open_page
+    within(".login") do
+      click_on "Login"
+    end
 
-    assert_equal dashboard_path, current_path
+    assert_equal dashboard_path(user1.id), current_path
+    # save_and_open_page
     click_on "View Past Orders"
     #   When I visit "/orders"
     #   Then I should see all orders belonging to me and no other orders
