@@ -21,6 +21,10 @@ class Cart
     end
   end
 
+  def clear_contents
+    @contents = {}
+  end
+
   def quantity
     @contents.values.sum
   end
