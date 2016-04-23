@@ -5,7 +5,7 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 		<li class="active">
-		<a href="/cart"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= @cart.quantity %> Items - $<%= @cart.total %></a>
+		<a href="/cart"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= @cart.quantity %> <%= @cart.pluralize? %> - $<%= @cart.total %></a>
 		</li>
 		<li class="active">
 				<%= link_to "Logout", logout_path, method: "delete" if current_user %>
