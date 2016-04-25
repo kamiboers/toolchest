@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :cart_tools, only: [:create, :destroy]
   resource :cart, only: [:show, :update]
-  post "/cart", to: "cart_tools#update"
+  put "/cart_tools", to: "cart_tools#update"
   get "/:category_name", to: 'categories#view', as: :category_name
 
 
