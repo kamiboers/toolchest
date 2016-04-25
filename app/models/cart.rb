@@ -7,8 +7,8 @@ class Cart
   end
 
   def add_tool(tool_id)
-    @contents[tool_id] ||= 0
-    @contents[tool_id] += 1
+    @contents[tool_id.to_s] ||= 0
+    @contents[tool_id.to_s] += 1
   end
 
   def toolbag
@@ -21,12 +21,20 @@ class Cart
     end
   end
 
+  def clear_contents
+    @contents = {}
+  end
+
   def quantity
     @contents.values.sum
   end
 
   def remove(tool_id)
     @contents.delete(tool_id)
+  end
+
+  def pluralize?
+    quantity == 1 ? "Item" : "Items"
   end
 
   def update_quantity(new_data)

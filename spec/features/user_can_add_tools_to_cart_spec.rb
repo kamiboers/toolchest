@@ -11,14 +11,14 @@ RSpec.feature "Vistor can add tools to cart" do
       click_on "Add to Cart"
     end
 
-    click_on "Items"
+    click_on "Item"
 
     assert_equal "/cart", current_path
     expect(page).to have_content drill.name
     expect(page).to have_content drill.description
     expect(page).to have_content drill.price
     expect(page).to have_css("img[src*='#{drill.image_path}']")
-    expect(page).to have_content "Total: #{drill.price}"
+    expect(page).to have_content "Total: $#{drill.price}"
   end
 
   scenario "visitor adds multiple tools to cart and views cart total" do
@@ -33,8 +33,8 @@ RSpec.feature "Vistor can add tools to cart" do
     within(".#{chainsaw.name}") do
       click_on "Add to Cart"
     end
-    click_on "Items"
+    click_on "Item"
 
-    expect(page).to have_content "Total: #{total_price}"
+    expect(page).to have_content "Total: $#{total_price}"
   end
 end

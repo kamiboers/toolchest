@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # byebug
     if session[:user_id]
       @user = User.find(session[:user_id])
     else
@@ -19,7 +18,6 @@ class UsersController < ApplicationController
       flash[:success] = "Account created. Welcome to ToolChest, #{@user.username.capitalize}"
       redirect_to dashboard_path(@user.id)
     else
-
       flash[:error] = "Username and password are required to create an account."
       render :new
     end

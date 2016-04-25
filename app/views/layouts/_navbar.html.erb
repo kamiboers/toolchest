@@ -5,7 +5,10 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right">
 		<li class="active">
-		<a href="/cart"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= @cart.quantity %> Items - $<%= @cart.total %></a>
+		<a href="/cart"><span class="glyphicon glyphicon-shopping-cart glyphy-butt"></span><%= @cart.quantity %> <%= @cart.pluralize? %> - <%= number_to_currency(@cart.total, :precision => 2) %></a>
+		</li>
+		<li class="active">
+				<%= link_to "My Dashboard", dashboard_path(current_user) if current_user %>
 		</li>
 		<li class="active">
 				<%= link_to "Logout", logout_path, method: "delete" if current_user %>

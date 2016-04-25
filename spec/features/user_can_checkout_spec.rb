@@ -8,7 +8,7 @@ RSpec.feature "User can checkout" do
     # When I add items to my cart
     add_tools_to_cart(5)
     # And I visit "/cart"
-    click_on "Items"
+    click_on "Item"
     # And I click "Checkout"
     click_on "Login or Create Account to Checkout"
     # save_and_open_page
@@ -39,7 +39,7 @@ RSpec.feature "User can checkout" do
     assert_equal 1, Order.count
     order = Order.last
     assert_equal "Tool4", OrderTool.find_by(order_id: order.id).tool.name
-    expect(page).to have_content "Order #{order.id}"
+    expect(page).to have_content "Order ##{order.id}"
     
 
 

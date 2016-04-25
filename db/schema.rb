@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423204634) do
+ActiveRecord::Schema.define(version: 20160425135059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "cart_tools", force: :cascade do |t|
-    t.integer  "tool_id"
-    t.decimal  "unit_price"
-    t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "cart_tools", ["tool_id"], name: "index_cart_tools_on_tool_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +39,8 @@ ActiveRecord::Schema.define(version: 20160423204634) do
     t.integer  "user_id"
     t.integer  "status"
     t.datetime "closed_at"
+    t.decimal  "total"
+    t.integer  "quantity"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -74,7 +66,6 @@ ActiveRecord::Schema.define(version: 20160423204634) do
     t.integer  "role",            default: 0
   end
 
-  add_foreign_key "cart_tools", "tools"
   add_foreign_key "order_tools", "orders"
   add_foreign_key "order_tools", "tools"
   add_foreign_key "orders", "users"
