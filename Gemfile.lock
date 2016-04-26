@@ -42,7 +42,6 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (8.2.4)
     capybara (2.7.0)
       addressable
       mime-types (>= 1.16)
@@ -224,7 +223,6 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bundler
-  byebug
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
