@@ -8,7 +8,6 @@ class Admin::ToolsController < Admin::BaseController
   def create
     @tool = Tool.new(tool_params)
     PhotoAssigner.call(@tool)
-
     if @tool.save
       flash[:success] = "Tool Created"
       redirect_to tool_path(@tool.id)
@@ -18,7 +17,13 @@ class Admin::ToolsController < Admin::BaseController
     end
   end
 
+  def index
+    byebug
+    @tools = Tool.all
+  end
+
   private
+
   def tool_params
     params.require(:tool).permit(:name, :description, :price, :image_path, :category_id)
   end

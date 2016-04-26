@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root to: 'tools#index'
+  get "admin/tools", to: "admin/tools#index"
+
   namespace :admin do
     get "/dashboard", to: "users#show"
-    resources :tools, only: [:create, :new]
+    # get "/tools", to: "tools#index"
+    resources :tools, only: [:create, :new, :edit]
   end
 
   get "/login", to: "sessions#new", as: :login

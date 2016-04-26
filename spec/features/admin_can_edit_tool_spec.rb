@@ -15,6 +15,7 @@ RSpec.feature "Admin logs in with tools created" do
     tool = create(:tool)
     admin = create(:user, role: 1)
     visit "/admin/tools"
+
     click_on "Edit"
 
     assert_equal "/admin/tools/#{tool.id}/edit", current_path
