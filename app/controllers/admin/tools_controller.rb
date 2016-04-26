@@ -18,8 +18,24 @@ class Admin::ToolsController < Admin::BaseController
   end
 
   def index
-    byebug
     @tools = Tool.all
+  end
+
+  def edit
+    @tool = Tool.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @tool = Tool.find(params[:id])
+    @tool.update(tool_params)
+    if @tool.save
+      flash[:success] = "Tool Updated"
+      redirect_to tool_path(@tool)
+    else
+      flash.now[:warning] = "Tool Not Updated"
+      render :edit
+    end
   end
 
   private

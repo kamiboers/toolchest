@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Admin logs in with tools created" do
+  include SpecTestHelper
   scenario "then can edit a tool" do
     # Background: an existing item
     # As an admin
@@ -12,10 +13,12 @@ RSpec.feature "Admin logs in with tools created" do
     new_description = "description"
     new_price = "111"
     new_image = "image"
-    tool = create(:tool)
+    category = create(:category)
+    tool = create(:tool, category_id: category.id)
     admin = create(:user, role: 1)
-    visit "/admin/tools"
+    login_user(admin)
 
+    visit "/admin/tools"
     click_on "Edit"
 
     assert_equal "/admin/tools/#{tool.id}/edit", current_path
