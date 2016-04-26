@@ -153,6 +153,10 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -219,6 +223,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bundler
   byebug
   capybara
   coffee-rails (~> 4.1.0)
@@ -234,6 +239,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails_12factor
   rake
+  rspec
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
