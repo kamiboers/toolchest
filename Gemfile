@@ -32,6 +32,9 @@ gem 'rails_12factor', group: :production
 # Use Unicorn as the app server
 gem 'unicorn'
 
+gem 'bundler'
+gem 'rspec'
+gem 'rake'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -46,7 +49,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', '3.0.1'
   gem "faker"
-  gem 'rake'
 end
 
 group :development do
