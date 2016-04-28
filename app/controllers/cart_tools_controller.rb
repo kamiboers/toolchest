@@ -6,7 +6,7 @@ class CartToolsController < ApplicationController
     date = DateReserved.find_or_create_by(date_reserved: "#{year}-#{month}-#{day}")
     @tool = Tool.find(params[:id])
 
-    if date.date_reserved < DateTime.now
+    if date.date_reserved < DateTime.yesterday
       flash[:error] = "Tools cannot be rented on past dates."
       redirect_to tool_path(@tool)
     elsif !Reservation.where({tool_id: @tool.id, date_reserved_id: date.id }).empty?
