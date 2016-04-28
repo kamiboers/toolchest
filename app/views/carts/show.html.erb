@@ -5,9 +5,12 @@
     <div class="col-md-3 col-xs-12 cart-image thumbnail">
       <%= image_tag(tool.image_path, :alt => "#{tool.name} image", class: "img-responsive") %>
     </div>
-    <div class="col-md-3 col-xs-12 ">
+    <div class="col-md-2 col-xs-12 ">
       <h4><%= tool.name %></h4>
       <%= tool.description %>
+    </div>
+    <div class="col-md-2">
+      Reservation:<br><%= @reserved_dates[tool.id.to_s] %>
     </div>
     <div class="col-md-2 col-xs-12 cart-col">
       Price:<br>

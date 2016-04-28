@@ -1,3 +1,4 @@
+<% byebug %>
 <div class="container-fluid cart-box col-md-offset-1 col-md-10 rounded">
   <h2>Order #<%= @order.id %>, <%= (@order.status + ", ") if @order.status %> placed on <%= @order.created_at.strftime("%A, %b %d, %Y") %><br>
   	<% if @order.closed_at %>
